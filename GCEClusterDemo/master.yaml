@@ -1,0 +1,24 @@
+name: "master-test"
+zone: asia-east1-a
+instances:
+  - name: front
+    count: 1
+    labels:
+      type: front
+      class: fast
+    instance_type: n1-standard-2
+    volumes:
+      - boot: true
+        autoDelete: true
+        initializeParams:
+          diskSizeGb: "16"
+  - name: db
+    count: 1
+    labels:
+      type: db
+    instance_type: n1-standard-2
+    volumes:
+      - boot: true
+        autoDelete: true
+        initializeParams:
+          diskSizeGb: "32"
